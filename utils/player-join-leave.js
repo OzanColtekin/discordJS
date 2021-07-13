@@ -58,6 +58,7 @@ module.exports = async (client,Roller,Tags) => {
 		const ticketlistem = await tag.get("usersTickets")
 		const guild = await client.guilds.cache.get(member.guild.id);
 		const logdata = await tag.get("welcomelog")
+		const inviteTakipDurum = await tag.get("inviteTakipDurumu")
 		const log = member.guild.channels.cache.get(logdata)
 		const members = await guild.members.fetch()
 		var control = []
@@ -75,10 +76,15 @@ module.exports = async (client,Roller,Tags) => {
 			const davetEden = member.guild.member(control[1])
 			inviteListe[control[1]].user_list.splice(inviteListe[control[1]].user_list.indexOf(member.id),1)
 			await Tags.update({inviteList:inviteListe},{where:{guild_id:member.guild.id}})
-			log.send(`**${member}** ayrıldı, **${davetEden.user.username}** tarafından davet edilmişti.`)
+			if(inviteTakipDurum ==1){
+				log.send(`**${member}** ayrıldı, **${davetEden.user.username}** tarafından davet edilmişti.`)
+			}
+			
 		}
 		else{
+			if(inviteTakipDurum ==1){
 			log.send(`**${member}** ayrıldı, hâlâ kimin davet ettiğini bulamıyorum. `)
+			}
 		}
 		delete inviteListe[member.id]
 		delete ticketlistem[member.id]

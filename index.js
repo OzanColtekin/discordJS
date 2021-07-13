@@ -82,14 +82,6 @@ const Roller = {"Management":"855825686798663690",
 				"Mute": "857545873948934145",
 				}
 
-// const Roller = {"Management":"690336322803859906",
-// 				"Head Admin":"762306642435112961",
-// 				"Game Admin":"782339565410713611",
-// 				"Trial Admin":"858495000380047391",
-// 				"Support":"779818198102966273",
-// 				"Mute": "858495000380047391",
-// 				}
-
 // Kısaltma Bitiş
 
 
@@ -121,11 +113,9 @@ client.once('ready', async () => {
 	
 	//Oynuyor Bölümü
 	client.user.setActivity("19 Police Pursuit", { type: "PLAYING" });
-	
 
 	// LOG KANALLARI KONTROL //
 
-	
 	client.guilds.cache.forEach(async guild =>{
 		guild.channels.cache.forEach(async channel => {
 			if(!fs.existsSync(`./logs/${guild.id}`)){
@@ -180,7 +170,7 @@ client.once('ready', async () => {
 	//MYSQL
 
 	conn.connect(function (err) {
-		if (err) return console.log(err);
+		if (err) return console.log("MYSQL Bağlantısı yapılamadı.");
 		console.log(chalk.blue('MYSQL Bağlandı'));
 	})
 
@@ -271,6 +261,33 @@ client.once('ready', async () => {
 			}
 			
 	})
+
+	// tickets kontrol //
+	client.guilds.cache.forEach(async guild =>{
+		const tag = await Tags.findOne({where:{guild_id:guild.id}})
+		const members = await guild.members.fetch()
+		const data = await tag.get("usersTickets")
+		members.forEach(async member =>{
+			if(data[member.id] == undefined){
+				data[member.id] = {channel_id :"",kapatmaDurum:0}
+				await Tags.update({usersTickets:data},{where:{guild_id:guild.id}})
+			}
+		})
+	})
+
+	// user invite control //
+	client.guilds.cache.forEach(async guild =>{
+		const tag = await Tags.findOne({where:{guild_id:guild.id}})
+		const members = await guild.members.fetch()
+		const data = await tag.get("inviteList")
+		members.forEach(async member =>{
+			if(data[member.id] == undefined){
+				data[member.id] = {user_list:[]}
+				await Tags.update({inviteList:data},{where:{guild_id:guild.id}})
+			}
+		})
+	})
+
 
 	
 

@@ -75,7 +75,7 @@ module.exports =(client,Tags,Roller,Discord) => {
         },
         {
             id: Roller["Bot"],
-            allow:["VIEW_CHANNEL"],
+            allow:["VIEW_CHANNEL","SEND_MESSAGES"],
         },
         {
             id:"772506278790561802",

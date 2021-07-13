@@ -16,6 +16,6 @@ module.exports =(client,Tags,Roller,Discord,RolVarMiMember) => {
                 await Tags.update({usersTickets:data},{where:{guild_id:guild.id}})
             }
         })
-        channel.delete()
+        await channel.delete()
     })
 }

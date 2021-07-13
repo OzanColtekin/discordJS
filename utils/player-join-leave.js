@@ -18,7 +18,7 @@ module.exports = async (client,Roller,Tags) => {
     	const inviteTakipDurum = await tag.get("inviteTakipDurumu")
 		const logdata = await tag.get("welcomelog")
     	invitelistem[member.id] = {user_list:[]}
-		ticketlistem[member.id] = {channel_id:""}
+		ticketlistem[member.id] = {channel_id:"",kapatmaDurum:0}
     	await Tags.update({inviteList:invitelistem},{where:{guild_id:guild.id}})
 		await Tags.update({usersTickets:ticketlistem},{where:{guild_id:guild.id}})
     	if(data[member.id]){

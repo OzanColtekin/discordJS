@@ -1,0 +1,13 @@
+[Tarih :2021-7-12 14:23:14] ozan#0144 (611477938285838336): test mesaj  
+[Tarih :2021-7-12 14:23:20] ozan#0144 (611477938285838336): resim gönderdim  
+[Tarih :2021-7-12 14:23:25] ozan#0144 (611477938285838336): https://cdn.discordapp.com/attachments/855884690737463306/864149955958538280/19dclogo.png   
+[Tarih :2021-7-12 14:23:27] ozan#0144 (611477938285838336): bunu editlicem  
+[Tarih :2021-7-12 14:23:27] ozan#0144 (611477938285838336): bunu editlicem olan mesajı düzenledim olarak editledi.  
+[Tarih :2021-7-12 14:23:38] ozan#0144 (611477938285838336): !rapor <@!611477938285838336> test  
+[Tarih :2021-7-12 14:23:38] 19 Police Pursuit#8134 (859779522227732510): https://cdn.discordapp.com/attachments/855884690737463306/864150014807769088/855884690737463306.txt **<@!611477938285838336>** adlı kişi <@!611477938285838336> adlı kişiyi **test** sebebiyle raporladı.  
+[Tarih :2021-7-12 14:33:58] ozan#0144 (611477938285838336): !destek  
+[Tarih :2021-7-12 14:33:58] 19 Police Pursuit#8134 (859779522227732510): Bu komutu kullanamazsınız.  
+[Tarih :2021-7-12 14:46:33] ozan#0144 (611477938285838336): !hk <@!611477938285838336>  
+[Tarih :2021-7-12 14:46:34] 19 Police Pursuit#8134 (859779522227732510):   
+[Tarih :2021-7-12 14:46:34] 19 Police Pursuit#8134 (859779522227732510):  olan mesajı  olarak editledi.  
+[Tarih :2021-7-12 14:48:50] 19 Police Pursuit#8134 (859779522227732510): https://cdn.discordapp.com/attachments/855884690737463306/864156356072177674/857598316384747560.txt **<@340963384168022026>** adlı kişi <@852764239173386270> adlı kişiyi **küfür** sebebiyle raporladı.  

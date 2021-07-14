@@ -129,11 +129,11 @@ client.once('ready', async () => {
 				})
 			}
 			if(channel.type == "text"){
-				if(!fs.existsSync(`./logs/${guild.id}/${channel.id}.txt`)){
-					await fs.writeFile(`./logs/${guild.id}/${channel.id}.txt`, "",{ flag: 'w+' },function (err) {
-					  if (err) return console.log(err);
-					})
-				}
+				if(!fs.existsSync(`./logs/${guild.id}/${channel.name}`)){
+                    await fs.writeFile(`./logs/${guild.id}/${channel.name}`, "",{ flag: 'w+' },function (err) {
+                      if (err) return console.log(err);
+                    })
+                }
 			}
 			
 		})

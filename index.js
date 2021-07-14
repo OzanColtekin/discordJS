@@ -152,7 +152,7 @@ client.once('ready', async () => {
 	playerJoinLeave(client,Roller,Tags)
 	hediye(client,Tags)
 	mesajLog(client,fs)
-	linkEngelleme(client,RolVarMi,Roller,Tags)
+	linkEngelleme(client,RolVarMi,Roller,Tags,Discord)
 	bantakip(client)
 	guildCreate(client,Tags)
 	kanalacınca(client,fs)

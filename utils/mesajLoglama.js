@@ -2,7 +2,7 @@ module.exports = (client,fs) => {
 	client.on("message" , async message => {
 		var date = new Date(message.createdTimestamp)
 		var Attachment = (message.attachments)
-		var dosyaName = `${message.channel.id}-${date.getDay()}-${date.getMonth()}`
+		var dosyaName = `${message.channel.id}-${date.toLocaleString('tr-TR',{timeZone:'Europe/Athens', month:'numeric'})}-${date.toLocaleString('tr-TR',{timeZone:'Europe/Athens', day:'numeric'})}`
 		if(Attachment.array()[0] != null){
 			var mesaj = `[${date.toLocaleString('tr-TR', { timeZone: 'UTC' })}] ${message.author.username}#${message.author.discriminator} (${message.author.id}): ${Attachment.array()[0].url} ${message.content}  \n`
 		}else{

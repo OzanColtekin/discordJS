@@ -4,7 +4,8 @@ module.exports = (client,RolVarMi,Roller,Tags,Discord) => {
 		if(RolVarMi(message,Roller["Management"])) return 0;
 		const tag = await Tags.findOne({where: {guild_id : message.guild.id}})
 		const linkEngel = await tag.get("linkEngellemeDurum")
-		const log = message.channels.cache.find(c => c.id == await tag.get("logchannel"))
+		const logid = await tag.get("logchannel")
+		const log = message.guild.channels.cache.find(c => c.id === logid)
 		if(linkEngel==0) return 0;
 		const probablyLinks = [".com",".tv",".net",".xyz",".gg",".io",".io","www.","https:","http:",".org",".biz",".party",".me"]
 		probablyLinks.some(async word => {

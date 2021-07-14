@@ -1,3 +1,0 @@
-InviteLogger#5780 (ID: 499595256270946326): Hoşgeldin **<@727182895352905811>!** Seni davet eden: **ozan**, toplam **3 daveti oldu!** <a:gif2:857664480947208232> || Zaman : [2021-7-12 11:51:21] 
-InviteLogger#5780 (ID: 499595256270946326): **<@727182895352905811>** ayrıldı. **ozan** tarafından davet edilmişti. <a:gif8:857664489275785217> || Zaman : [2021-7-12 11:54:51] 
-InviteLogger#5780 (ID: 499595256270946326): Hoşgeldin **<@727182895352905811>!** Seni davet eden: **ozan**, toplam **3 daveti oldu!** <a:gif2:857664480947208232> || Zaman : [2021-7-12 11:55:00] 

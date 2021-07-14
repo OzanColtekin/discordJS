@@ -130,9 +130,9 @@ client.once('ready', async () => {
 			}
 			if(channel.type == "text"){
 				if(!fs.existsSync(`./logs/${guild.id}/${channel.name}`)){
-                    await fs.mkdirSync(`./logs/${guild.id}/${channel.name}`, "",{ flag: 'w+' },function (err) {
-                      if (err) return console.log(err);
-                    })
+                    await fs.mkdirSync(`./logs/${guild.id}/${channel.name}`,0766,function(err){
+						if(err) return console.log(err)
+					})
                 }
 			}
 			

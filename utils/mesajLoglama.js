@@ -2,11 +2,11 @@ module.exports = (client,fs) => {
 	client.on("message" , async message => {
 		var date = new Date(message.createdTimestamp)
 		var Attachment = (message.attachments)
-		var dosyaName = `${message.channel.id}-${date.getDay}-${date.getMonth}`
+		var dosyaName = `${message.channel.id}-${date.getDay()}-${date.getMonth()}`
 		if(Attachment.array()[0] != null){
-			var mesaj = `[Tarih :${date.toLocaleString('tr-TR', { timeZone: 'UTC' })}] ${message.author.username}#${message.author.discriminator} (${message.author.id}): ${Attachment.array()[0].url} ${message.content}  \n`
+			var mesaj = `[${date.toLocaleString('tr-TR', { timeZone: 'UTC' })}] ${message.author.username}#${message.author.discriminator} (${message.author.id}): ${Attachment.array()[0].url} ${message.content}  \n`
 		}else{
-			var mesaj = `[Tarih :${date.toLocaleString('tr-TR', { timeZone: 'UTC' })}] ${message.author.username}#${message.author.discriminator} (${message.author.id}): ${message.content}  \n`
+			var mesaj = `[${date.toLocaleString('tr-TR', { timeZone: 'UTC' })}] ${message.author.username}#${message.author.discriminator} (${message.author.id}): ${message.content}  \n`
 		}
 		if(!fs.existsSync(`./logs/${message.guild.id}/${message.channel.name}/${dosyaName}.txt`)){
 			await fs.writeFile(`./logs/${message.guild.id}/${message.channel.name}/${dosyaName}.txt`, "",{ flag: 'w+' },function (err) {

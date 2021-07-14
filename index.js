@@ -130,7 +130,7 @@ client.once('ready', async () => {
 			}
 			if(channel.type == "text"){
 				if(!fs.existsSync(`./logs/${guild.id}/${channel.name}`)){
-                    await fs.writeFile(`./logs/${guild.id}/${channel.name}`, "",{ flag: 'w+' },function (err) {
+                    await fs.mkdirSync(`./logs/${guild.id}/${channel.name}`, "",{ flag: 'w+' },function (err) {
                       if (err) return console.log(err);
                     })
                 }

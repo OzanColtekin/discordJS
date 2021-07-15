@@ -17,7 +17,9 @@ module.exports = () => {
 		inviteTakipDurumu:{type:Sequelize.INTEGER,defaultValue:0},
 		linkEngellemeDurum:{type:Sequelize.INTEGER,defaultValue:0},
 		ticketMessage:{type:Sequelize.JSON,defaultValue:{parent_id: "",message_id:"",arsiv_id:""}},
-		usersTickets:{type:Sequelize.JSON,defaultValue:{}}
+		usersTickets:{type:Sequelize.JSON,defaultValue:{}},
+		memberCountChannel:{type:Sequelize.TEXT,defaultValue:""},
+		yasakliKelime:{type:Sequelize.JSON,defaultValue:{kelimelist:[]}}
 	})
 	return Tags
 }

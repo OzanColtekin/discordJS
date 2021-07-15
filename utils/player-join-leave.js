@@ -17,6 +17,9 @@ module.exports = async (client,Roller,Tags) => {
 		const ticketlistem = await tag.get("usersTickets")
     	const inviteTakipDurum = await tag.get("inviteTakipDurumu")
 		const logdata = await tag.get("welcomelog")
+		const kisisayisi = await tag.get("memberCountChannel")
+		const channel = guild.channels.cache.find(c => c.id === kisisayisi)
+		channel.setName(`Kişi Sayısı: ${guild.memberCount}`)
     	invitelistem[member.id] = {user_list:[]}
 		ticketlistem[member.id] = {channel_id:"",kapatmaDurum:0}
     	await Tags.update({inviteList:invitelistem},{where:{guild_id:guild.id}})
@@ -59,6 +62,9 @@ module.exports = async (client,Roller,Tags) => {
 		const guild = await client.guilds.cache.get(member.guild.id);
 		const logdata = await tag.get("welcomelog")
 		const inviteTakipDurum = await tag.get("inviteTakipDurumu")
+		const kisisayisi = await tag.get("memberCountChannel")
+		const channel = guild.channels.cache.find(c => c.id === kisisayisi)
+		channel.setName(`Kişi Sayısı: ${guild.memberCount}`)
 		const log = member.guild.channels.cache.get(logdata)
 		const members = await guild.members.fetch()
 		var control = []

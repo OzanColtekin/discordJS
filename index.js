@@ -114,6 +114,16 @@ client.once('ready', async () => {
 	//Oynuyor Bölümü
 	client.user.setActivity("19 Police Pursuit", { type: "PLAYING" });
 
+	// 
+	client.guilds.cache.forEach(async guild =>{
+		const tag = await Tags.findOne({where:{guild_id:guild.id}})
+		const channelId = await tag.get("memberCountChannel")
+		if(channelId != undefined){
+			const channel = guild.channels.cache.find(c => c.id == channelId)
+			channel.setName(`Kişi Sayısı: ${guild.memberCount}`)
+		}
+	})
+
 	// LOG KANALLARI KONTROL //
 
 	client.guilds.cache.forEach(async guild =>{

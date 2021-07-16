@@ -22,6 +22,7 @@ const linkEngelleme = require('./utils/linkengelleme.js')
 const kanalacınca = require('./utils/channelCreate.js')
 const kanalsilince = require('./utils/channelDelete.js')
 const mesajdüzenleme = require('./utils/messageUpdate.js')
+const yasakliKelime = require('./utils/yasaklikelime.js')
 
 // ticket sistemi
 
@@ -168,6 +169,7 @@ client.once('ready', async () => {
 	kanalacınca(client,fs)
 	kanalsilince(client,fs)
 	mesajdüzenleme(client,fs)
+	yasakliKelime(client,RolVarMi,Roller,Tags,Discord)
 
 	// ticket sistemi
 

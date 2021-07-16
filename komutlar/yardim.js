@@ -13,6 +13,7 @@ module.exports ={
                 			{ name: '!kural', value : `!kural [baslık/acıklama/ceza/paylas] [metin]`},
 							{ name: '!bot', value: '!bot [log/welcomelog] [kanalid]'},
 							{ name: '!linkengel - !lengel - !link', value: '!linkengel [aç/kapat]'},
+							{ name: '!yasaklikelime', value:'!yasaklikelime [ekle/cikar] [kelime]'},
 							{ name: '!ticket - !destek', value: '!ticket [kategori/arsiv/paylas]'},
                 			{ name: '!reload - !r - !rl', value : `!reload [komut adı]`},
                 			{ name: '!herkesicek - !herkesitasi - !etasi - !ecek', value : `!herkesicek [kanal adı]`},
@@ -54,6 +55,19 @@ module.exports ={
                 			{ name: '!mute - sustur', value : `!mute @kullanıcı [süre(dakika)] [sebep]`},
                 			{ name: '!unmute', value : `!unmute @kullanıcı [sebep]`},
                 			{ name: '!hakkında', value : `!hakkında @kullanıcı`},
+							//{ name: '\u200B', value: '\u200B',inline: true },
+						)
+                .setThumbnail('https://i.hizliresim.com/3atro9p.png')
+                .setFooter('19 Police Pursuit', 'https://i.hizliresim.com/3atro9p.png');
+            message.channel.send(embed)
+		}
+		else{
+			let embed = new Discord.MessageEmbed()
+                .setColor("#33FFCA")
+                .setTitle(`19PP Yardım`)
+                .addFields(
+                			{ name: '!rapor - report', value : `!rapor @kullanıcı [sebep]`},
+                			{ name: '!ip', value : `Sunucu ip'sini verir.`},
 							//{ name: '\u200B', value: '\u200B',inline: true },
 						)
                 .setThumbnail('https://i.hizliresim.com/3atro9p.png')

@@ -10,9 +10,18 @@ module.exports = {
             const kelime = await tag.get("yasakliKelime")
             kelime.kelimelist.push(eklencek)
             await Tags.update({yasakliKelime:kelime},{where:{guild_id:message.guild.id}})
+            message.react("👍")
+
         }
         else if(args[0] == "cikar"){
-
+            if(!args[1]) return MesajGönder(message,"!yasaklikelime cikar [kelime]")
+            const kelime = await tag.get("yasakliKelime")
+            const cikarilacak = args.splice(1,args.length).join(" ")
+            if(kelime.kelimelist.includes(cikarilacak)){
+                data.kelimelist.splice(data.kelimelist.indexOf(cikarilacak),1)
+                await Tags.update({yasakliKelime:kelime},{where:{guild_id:message.guild.id}})
+                message.react("👍")
+            }
         }
     }
 }

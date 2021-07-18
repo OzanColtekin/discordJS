@@ -169,7 +169,7 @@ client.once('ready', async () => {
 	kanalacınca(client,fs)
 	kanalsilince(client,fs)
 	mesajdüzenleme(client,fs)
-	yasakliKelime(client,RolVarMi,Roller,Tags,Discord)
+	yasakliKelime(client,RolVarMi,Roller,Discord,fs)
 
 	// ticket sistemi
 

@@ -11,6 +11,12 @@ module.exports = {
 		 if(member.roles.cache.find(r=> r.id === Roller["Management"]) || member.roles.cache.find(r=> r.id === Roller["Head Admin"]) || member.roles.cache.find(r=> r.id === Roller["Game Admin"]) || member.roles.cache.find(r=> r.id === Roller["Trial Admin"]) || member.roles.cache.find(r=> r.id === Roller["Support"])) return log.send(`**${message.member.user.username}** adlı kişi **${member.user.username}** adlı kişiyi ${sebep} sebebiyle kicklemeye çalıştı.`)
 		 member.kick()
 		 log.send(`**${member.user.username}** adlı kişi **${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle kicklendi.`)
-		 member.send(`**${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle kicklendin.`)
+		 try {
+			member.send(`**${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle kicklendin.`)
+		 }
+		 catch (err){
+			 throw err
+		 }
+		 
 	}
 }

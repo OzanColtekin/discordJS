@@ -15,6 +15,12 @@ module.exports = {
 		 if(member.roles.cache.find(r=> r.id === Roller["Management"]) || member.roles.cache.find(r=> r.id === Roller["Head Admin"]) || member.roles.cache.find(r=> r.id === Roller["Game Admin"]) || member.roles.cache.find(r=> r.id === Roller["Trial Admin"]) || member.roles.cache.find(r=> r.id === Roller["Support"])) return log.send(`**${message.member.user.username}** adlı kişi **${member.user.username}** adlı kişiyi ${args[1]} sebebiyle banlamaya çalıştı.`)
 		 member.ban()
 		 log.send(`**${member.user.username}** adlı kişi **${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle banlandı.`)
-		 member.send(`**${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle banlandın.`)
+		 try{
+			member.send(`**${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle banlandın.`)
+		 }
+		 catch (err){
+			 throw err
+		 }
+		 
 	}
 }

@@ -115,7 +115,7 @@ client.once('ready', async () => {
 	//Oynuyor Bölümü
 	client.user.setActivity("19 Police Pursuit", { type: "PLAYING" });
 
-	// 
+	// kişi sayısı
 	client.guilds.cache.forEach(async guild =>{
 		const tag = await Tags.findOne({where:{guild_id:guild.id}})
 		const channelId = await tag.get("memberCountChannel")
@@ -300,6 +300,18 @@ client.once('ready', async () => {
 		})
 	})
 
+	// anti mention control
+	client.guilds.cache.forEach(async guild =>{
+		const tag = await Tags.findOne({where:{guild_id:guild.id}})
+		const members = await guild.members.fetch()
+		const data = await tag.get("antimention")
+		members.forEach(async member =>{
+			if(data[member.id] == undefined){
+				data[member.id] = {etiketsayi:0}
+				await Tags.update({antimention:data},{where:{guild_id:guild.id}})
+			}
+		})
+	})
 
 	
 
@@ -308,7 +320,7 @@ client.once('ready', async () => {
 
 
 client.on('message',async (message) => {
-
+	
 	if(message.author.bot) return 0;
 	if(message.channel.type === "dm") return 0;
 

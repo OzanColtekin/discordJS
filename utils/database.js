@@ -19,7 +19,7 @@ module.exports = () => {
 		ticketMessage:{type:Sequelize.JSON,defaultValue:{parent_id: "",message_id:"",arsiv_id:""}},
 		usersTickets:{type:Sequelize.JSON,defaultValue:{}},
 		memberCountChannel:{type:Sequelize.TEXT,defaultValue:""},
-		yasakliKelime:{type:Sequelize.JSON,defaultValue:{}}
+		antimention:{type:Sequelize.JSON,defaultValue:{}}
 	})
 	return Tags
 }

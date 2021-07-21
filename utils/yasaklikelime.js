@@ -10,8 +10,10 @@ module.exports = (client,RolVarMi,Roller,Discord,fs) =>{
                     let embed = new Discord.MessageEmbed()
                     .setAuthor('19 Police Pursuit', 'https://i.hizliresim.com/rtbr3kh.png','https://19-pp.com/')
                     .setDescription(`${message.member} yasaklı kelime kullandığınız için mesajınız silindi.`)
-                    message.channek.send(embed).then(msg =>{
-                        setTimeout(msg.delete(),2000)
+                    message.channel.send(embed).then(msg =>{
+                        setTimeout(()=>{
+                            msg.delete()
+                        },2000)
                     })
                 }
             })

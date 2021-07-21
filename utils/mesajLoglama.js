@@ -1,5 +1,6 @@
 module.exports = (client,fs) => {
 	client.on("message" , async message => {
+		if(message.channel.type === "dm") return 0;
 		var date = new Date(message.createdTimestamp)
 		var Attachment = (message.attachments)
 		var dosyaName = `${message.channel.id}-${date.toLocaleString('tr-TR',{timeZone:'Europe/Athens', month:'numeric'})}-${date.toLocaleString('tr-TR',{timeZone:'Europe/Athens', day:'numeric'})}`

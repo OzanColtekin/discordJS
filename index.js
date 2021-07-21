@@ -23,6 +23,7 @@ const kanalacınca = require('./utils/channelCreate.js')
 const kanalsilince = require('./utils/channelDelete.js')
 const mesajdüzenleme = require('./utils/messageUpdate.js')
 const yasakliKelime = require('./utils/yasaklikelime.js')
+const antimention = require('./utils/antimention.js')
 
 // ticket sistemi
 
@@ -170,6 +171,7 @@ client.once('ready', async () => {
 	kanalsilince(client,fs)
 	mesajdüzenleme(client,fs)
 	yasakliKelime(client,RolVarMi,Roller,Discord,fs)
+	antimention(client,RolVarMi,RolVarMiMember,Tags,Roller)
 
 	// ticket sistemi
 

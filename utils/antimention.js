@@ -3,6 +3,7 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
         if(message.author.bot) return 0;
         const member = message.member
         if(RolVarMi(message,Roller["Management"]) || RolVarMi(message,Roller["Head Admin"]) || RolVarMi(message,Roller["Trial Admin"]) || RolVarMi(message,Roller["Support"])) return 0 ;
+        if(message.content.startsWith("!rapor") || message.content.startsWith("!report")) return 0;
         const etiket = message.mentions.members.first()
         if(etiket == undefined) return 0;
         const tag = await Tags.findOne({where:{guild_id:message.guild.id}})
@@ -21,6 +22,7 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
             member.send("Kanallar üzerinden birini etiketlemeye devam edersen mutelenceksin.")
             await Tags.update({antimention:data},{where:{guild_id:message.guild.id}})
         }
+        message.delete()
         
     })
 }

@@ -16,7 +16,7 @@ module.exports = {
         else if(args[0] == "cikar"){
             if(!args[1]) return MesajGönder(message,"!yasaklikelime cikar [kelime]")
             const cikarilacak = args.splice(1,args.length).join(" ")+","
-            await fs.readFile(`./utils/kelimeler.txt`, 'utf8', function(err, data) {
+            await fs.readFile(`./utils/kelimeler.txt`, 'utf8', async function(err, data) {
                 var kelimeler = data.split(",")
                 kelimeler.splice(kelimeler.indexOf(cikarilacak),1)
                 await fs.writeFile(`./utils/kelimeler.txt`, kelimeler,{ flag: 'w+' },function (err) {

@@ -16,7 +16,8 @@ module.exports = {
 			const data = await tag.get("muteList")
 			data[member.id] = {muteDurum:1}
 			await Tags.update({muteList:data},{where:{guild_id:message.guild.id}})
-			log.send(`**${member.user.username}** adlı kişi **${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle sınırsız mutelendı.`)
+			log.send(`**${member.user.username}** adlı kişi **${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle sınırsız mutelendi.`)
+			member.send(`**${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle sınırsız mutelendin.`)
 		}else{
 			member.roles.add(muteRol)
 			const data = await tag.get("muteList")
@@ -28,7 +29,8 @@ module.exports = {
 				data[member.id] = {muteDurum:0}
 				await Tags.update({muteList:data},{where:{guild_id:message.guild.id}})
 			},time*60000)
-			log.send(`**${member.user.username}** adlı kişi **${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle ${time} dakika mutelendı.`)
+			log.send(`**${member.user.username}** adlı kişi **${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle ${time} dakika mutelendi.`)
+			member.send(`**${message.member.user.username}** adlı kişi tarafından ${sebep} sebebiyle ${time} dakika mutelendin.`)
 		}
 		
 	}

@@ -6,21 +6,65 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
         if(message.content.startsWith("!rapor") || message.content.startsWith("!report")) return 0;
         const etiket = message.mentions.members.first()
         if(etiket == undefined) return 0;
+        const muteRol = message.guild.roles.cache.find(role => role.id === Roller['Mute'])
         const tag = await Tags.findOne({where:{guild_id:message.guild.id}})
-        const data = tag.get("antimention")
+        const data = await tag.get("antimention")
         data[member.id].etiketsayi = data[member.id].etiketsayi+1
-        if(data[member.id].etiketsayi >=3){
-            const muteRol = message.guild.roles.cache.find(role => role.id === Roller['Mute'])
+        await Tags.update({antimention:data},{where:{guild_id:message.guild.id}})
+        if(data[member.id].etiketsayi >=5){
             member.roles.add(muteRol)
+            member.send("Kanallar üzerinden çok fazla etiket attığın için bir saat mutelendin.")
             const mute = await tag.get("muteList")
 			mute[member.id] = {muteDurum:1}
 			await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
-            data[member.id].etiketsayi = 0
-            await Tags.update({antimention:data},{where:{guild_id:message.guild.id}})
+            setTimeout(async ()=>{
+                member.roles.remove(muteRol)
+                mute[member.id] = {muteDurum:0}
+                await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
+            },86400000)
+            
         }
-        else{
-            member.send("Kanallar üzerinden birini etiketlemeye devam edersen mutelenceksin.")
-            await Tags.update({antimention:data},{where:{guild_id:message.guild.id}})
+        else if(data[member.id].etiketsayi >=4){
+            member.roles.add(muteRol)
+            member.send("Kanallar üzerinden çok fazla etiket attığın için 45 dakika mutelendin.")
+            const mute = await tag.get("muteList")
+			mute[member.id] = {muteDurum:1}
+			await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
+            setTimeout(async ()=>{
+                member.roles.remove(muteRol)
+                mute[member.id] = {muteDurum:0}
+                await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
+            },2700000)
+            
+        }
+        else if(data[member.id].etiketsayi >=3){
+            member.roles.add(muteRol)
+            member.send("Kanallar üzerinden çok fazla etiket attığın için 30 dakika mutelendin.")
+            const mute = await tag.get("muteList")
+			mute[member.id] = {muteDurum:1}
+			await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
+            setTimeout(async ()=>{
+                member.roles.remove(muteRol)
+                mute[member.id] = {muteDurum:0}
+                await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
+            },1800000)
+            
+        }
+        else if(data[member.id].etiketsayi >=2){
+            member.roles.add(muteRol)
+            member.send("Kanallar üzerinden çok fazla etiket attığın için 15 dakika mutelendin.")
+            const mute = await tag.get("muteList")
+			mute[member.id] = {muteDurum:1}
+			await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
+            setTimeout(async ()=>{
+                member.roles.remove(muteRol)
+                mute[member.id] = {muteDurum:0}
+                await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
+            },900000)
+            
+        }
+        else if(data[member.id].etiketsayi >=1){
+            member.send("Kanallar üzerinden birilerini etiketlemeye devam edersen mutelenebilirsin.")
         }
         message.delete()
         

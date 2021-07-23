@@ -366,7 +366,7 @@ client.on('message',async (message) => {
 	const log = message.guild.channels.cache.get(logdata)
 
 	try{
-		command.execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag,KanalBul,kural)
+		command.execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag,KanalBul,kural,fs)
 	}
 	catch(e){
 		console.log(e)

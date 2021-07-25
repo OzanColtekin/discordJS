@@ -16,9 +16,11 @@ module.exports =(client,Tags,Roller,Discord) => {
 
         // ticket sahibi
         members.forEach(member => {
-            if(ticketlar[member.id].channel_id == channel.id){
-                ticket_sahip = member.id
-            } 
+            if(ticketlar[member.id] != undefined){
+                if(ticketlar[member.id].channel_id == channel.id){
+                    ticket_sahip = member.id
+                }
+            }           
         })
 
         if(ticketlar[ticket_sahip].kapatmaDurum == 1) return 0;

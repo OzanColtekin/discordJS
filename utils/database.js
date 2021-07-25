@@ -19,7 +19,8 @@ module.exports = () => {
 		ticketMessage:{type:Sequelize.JSON,defaultValue:{parent_id: "",message_id:"",arsiv_id:""}},
 		usersTickets:{type:Sequelize.JSON,defaultValue:{}},
 		memberCountChannel:{type:Sequelize.TEXT,defaultValue:""},
-		antimention:{type:Sequelize.JSON,defaultValue:{}}
+		antimention:{type:Sequelize.JSON,defaultValue:{}},
+		cacheLink:{type:Sequelize.JSON,defaultValue:{cache_link:"",cache_tarih:""}}
 	})
 	return Tags
 }

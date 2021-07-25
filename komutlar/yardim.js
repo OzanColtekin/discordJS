@@ -14,6 +14,7 @@ module.exports ={
 							{ name: '!bot', value: '!bot [log/welcomelog] [kanalid]'},
 							{ name: '!linkengel - !lengel - !link', value: '!linkengel [aç/kapat]'},
 							{ name: '!yasaklikelime', value:'!yasaklikelime [ekle/cikar] [kelime]'},
+							{ name: '!cacheayarla', value : `!cacheayarla [link]`},
 							{ name: '!ticket - !destek', value: '!ticket [kategori/arsiv/paylas]'},
                 			{ name: '!reload - !r - !rl', value : `!reload [komut adı]`},
                 			{ name: '!herkesicek - !herkesitasi - !etasi - !ecek', value : `!herkesicek [kanal adı]`},
@@ -23,6 +24,10 @@ module.exports ={
                 			{ name: '!mute - sustur', value : `!mute @kullanıcı [süre(dakika)] [sebep]`},
                 			{ name: '!unmute', value : `!unmute @kullanıcı [sebep]`},
                 			{ name: '!hakkında - !hk - !whois - !who', value : `!hakkında @kullanıcı`},
+							{ name: '!rapor - report', value : `!rapor @kullanıcı [sebep]`},
+                			{ name: '!ip', value : `Sunucu ip'sini verir.`},
+							{ name: '!ucp', value : `UCP linkini gönderir.`},
+							{ name: '!cache', value : `Cache linkini gönderir.`},
 							//{ name: '\u200B', value: '\u200B',inline: true },
 						)
                 .setThumbnail('https://i.hizliresim.com/3atro9p.png')
@@ -41,6 +46,10 @@ module.exports ={
                 			{ name: '!mute - sustur', value : `!mute @kullanıcı [süre(dakika)] [sebep]`},
                 			{ name: '!unmute', value : `!unmute @kullanıcı [sebep]`},
                 			{ name: '!hakkında', value : `!hakkında @kullanıcı`},
+							{ name: '!rapor - report', value : `!rapor @kullanıcı [sebep]`},
+                			{ name: '!ip', value : `Sunucu ip'sini verir.`},
+							{ name: '!ucp', value : `UCP linkini gönderir.`},
+							{ name: '!cache', value : `Cache linkini gönderir.`},
 							//{ name: '\u200B', value: '\u200B',inline: true },
 						)
                 .setThumbnail('https://i.hizliresim.com/3atro9p.png')
@@ -55,6 +64,10 @@ module.exports ={
                 			{ name: '!mute - sustur', value : `!mute @kullanıcı [süre(dakika)] [sebep]`},
                 			{ name: '!unmute', value : `!unmute @kullanıcı [sebep]`},
                 			{ name: '!hakkında', value : `!hakkında @kullanıcı`},
+							{ name: '!rapor - report', value : `!rapor @kullanıcı [sebep]`},
+                			{ name: '!ip', value : `Sunucu ip'sini verir.`},
+							{ name: '!ucp', value : `UCP linkini gönderir.`},
+							{ name: '!cache', value : `Cache linkini gönderir.`},
 							//{ name: '\u200B', value: '\u200B',inline: true },
 						)
                 .setThumbnail('https://i.hizliresim.com/3atro9p.png')
@@ -68,6 +81,8 @@ module.exports ={
                 .addFields(
                 			{ name: '!rapor - report', value : `!rapor @kullanıcı [sebep]`},
                 			{ name: '!ip', value : `Sunucu ip'sini verir.`},
+							{ name: '!ucp', value : `UCP linkini gönderir.`},
+							{ name: '!cache', value : `Cache linkini gönderir.`},
 							//{ name: '\u200B', value: '\u200B',inline: true },
 						)
                 .setThumbnail('https://i.hizliresim.com/3atro9p.png')

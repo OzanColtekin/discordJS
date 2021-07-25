@@ -1,9 +1,10 @@
 module.exports = {
 	name:"hakkında",
-	aliases:["hk","whois","who"],
+	aliases:["hk","whois","who","kimdir"],
 	cooldown:0,
 	guildOnly:true,
 	execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag){
+		if(!RolVarMi(message,Roller["Management"]) && !RolVarMi(message,Roller["Head Admin"]) && !RolVarMi(message,Roller["Game Admin"]) && !RolVarMi(message,Roller["Trial Admin"])) return MesajGönder(message,"Bu komutu kullanmazsınız.")
 		var now = Date.now()
 
 		var collection = new Discord.Collection();

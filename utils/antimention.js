@@ -13,11 +13,16 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
         await Tags.update({antimention:data},{where:{guild_id:message.guild.id}})
         if(data[member.id].etiketsayi >=5){
             member.roles.add(muteRol)
-            member.send("Kanallar üzerinden çok fazla etiket attığın için bir saat mutelendin.")
+            message.channel.send("Kanallar üzerinden çok fazla etiket attığın için bir saat mutelendin.").then(msg=>{
+                setTimeout(() => {
+                    msg.delete()
+                }, 5000);
+            })
             const mute = await tag.get("muteList")
 			mute[member.id] = {muteDurum:1}
 			await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
             setTimeout(async ()=>{
+                if(!RolVarMiMember(member,Roller["Mute"])) return 0;
                 member.roles.remove(muteRol)
                 mute[member.id] = {muteDurum:0}
                 await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
@@ -26,11 +31,16 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
         }
         else if(data[member.id].etiketsayi >=4){
             member.roles.add(muteRol)
-            member.send("Kanallar üzerinden çok fazla etiket attığın için 45 dakika mutelendin.")
+            message.channel.send("Kanallar üzerinden çok fazla etiket attığın için 45 dakika mutelendin.").then(msg=>{
+                setTimeout(() => {
+                    msg.delete()
+                }, 5000);
+            })
             const mute = await tag.get("muteList")
 			mute[member.id] = {muteDurum:1}
 			await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
             setTimeout(async ()=>{
+                if(!RolVarMiMember(member,Roller["Mute"])) return 0;
                 member.roles.remove(muteRol)
                 mute[member.id] = {muteDurum:0}
                 await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
@@ -39,11 +49,16 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
         }
         else if(data[member.id].etiketsayi >=3){
             member.roles.add(muteRol)
-            member.send("Kanallar üzerinden çok fazla etiket attığın için 30 dakika mutelendin.")
+            message.channel.send("Kanallar üzerinden çok fazla etiket attığın için 30 dakika mutelendin.").then(msg=>{
+                setTimeout(() => {
+                    msg.delete()
+                }, 5000);
+            })
             const mute = await tag.get("muteList")
 			mute[member.id] = {muteDurum:1}
 			await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
             setTimeout(async ()=>{
+                if(!RolVarMiMember(member,Roller["Mute"])) return 0;
                 member.roles.remove(muteRol)
                 mute[member.id] = {muteDurum:0}
                 await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
@@ -52,11 +67,16 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
         }
         else if(data[member.id].etiketsayi >=2){
             member.roles.add(muteRol)
-            member.send("Kanallar üzerinden çok fazla etiket attığın için 15 dakika mutelendin.")
+            message.channel.send("Kanallar üzerinden çok fazla etiket attığın için 15 dakika mutelendin.").then(msg=>{
+                setTimeout(() => {
+                    msg.delete()
+                }, 5000);
+            })
             const mute = await tag.get("muteList")
 			mute[member.id] = {muteDurum:1}
 			await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
             setTimeout(async ()=>{
+                if(!RolVarMiMember(member,Roller["Mute"])) return 0;
                 member.roles.remove(muteRol)
                 mute[member.id] = {muteDurum:0}
                 await Tags.update({muteList:mute},{where:{guild_id:message.guild.id}})
@@ -64,7 +84,11 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
             
         }
         else if(data[member.id].etiketsayi >=1){
-            member.send("Kanallar üzerinden birilerini etiketlemeye devam edersen mutelenebilirsin.")
+            message.channel.send("Kanallar üzerinden birilerini etiketlemeye devam edersen mutelenebilirsin.").then(msg=>{
+                setTimeout(() => {
+                    msg.delete()
+                }, 5000);
+            })
         }
         message.delete()
         

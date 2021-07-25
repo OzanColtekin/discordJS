@@ -58,6 +58,16 @@ function MesajGönder(message,msj) {
     message.channel.send(msj)
 }
 
+
+function handleDisconnection() {
+	conn.connect(function (err) {
+		if (err) {
+            setTimeout('handleDisconnection()', 2000);
+        }
+		console.log(chalk.blue('MYSQL Bağlandı'));
+	})
+}
+
 function ZamanHesapla(coutdown){
 	var now = new Date().getTime();
 	var sonuc = []
@@ -170,7 +180,7 @@ client.once('ready', async () => {
 	kanalacınca(client,fs)
 	kanalsilince(client,fs)
 	mesajdüzenleme(client,fs)
-	yasakliKelime(client,RolVarMi,Roller,Discord,fs)
+	yasakliKelime(client,RolVarMi,Roller,Discord,fs,Tags)
 	antimention(client,RolVarMi,RolVarMiMember,Tags,Roller)
 
 	// ticket sistemi
@@ -184,9 +194,22 @@ client.once('ready', async () => {
 	//MYSQL
 
 	conn.connect(function (err) {
-		if (err) return console.log("MYSQL Bağlantısı yapılamadı.");
+		if (err) {
+            setTimeout('handleDisconnection()', 2000);
+        }
 		console.log(chalk.blue('MYSQL Bağlandı'));
 	})
+
+	connection.on('error', function (err) {
+        logger.error('db error', err);
+        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+                         logger.error ( 'db error perform reconnection:' + err.message);
+            handleDisconnection();
+        } else {
+            throw err;
+        }
+    });
+
 
 	// SQLİTE 3
 	await Tags.sync();
@@ -225,12 +248,12 @@ client.once('ready', async () => {
 								var edit = setInterval(async function() {
 								 kalanvakit = ZamanHesapla(countdown)
 								 let embed = new Discord.MessageEmbed()
-	                            .setColor("#33FFCA")
-	                            .setTitle(`${odul}`)
-	                            .addField(`19-PP`,`Çekilişe katılmak için :tada: emojisine tıkla.\n Kalan süre ${kalanvakit[0]} gün ${kalanvakit[1]} saat ${kalanvakit[2]} dakika ${kalanvakit[3]} saniye.`)
-	                            .setThumbnail('https://i.hizliresim.com/3atro9p.png')
-	                            .setFooter('19 Police Pursuit ', 'https://i.hizliresim.com/3atro9p.png');
-	                            message.edit(embed);
+									.setColor("#FFFF00")
+									.setTitle(`Ödül : ${odul}`)
+									.addField(`19pursuit`,` \nÇekilişe katılmak için :tada: emojisine tıkla.\n Kalan süre ${days} gün ${hours} saat ${minutes} dakika ${seconds} saniye`)
+									.setThumbnail('https://i.hizliresim.com/3atro9p.png')
+									.setFooter('19 Police Pursuit - '+TimeStamp, 'https://i.hizliresim.com/3atro9p.png');
+								message.edit(embed)
 	                            if(kalanvakit[4]<=0){
 
 		                            const new_tag = await Tags.findOne({where: {guild_id : guild.id}})
@@ -252,13 +275,14 @@ client.once('ready', async () => {
 										
 						                
 						            }
-							         let embed = new Discord.MessageEmbed()
-		                            .setColor("#33FFCA")
-		                            .setTitle(`${odul}`)
-		                            .addField(`19-PP`,`Çekiliş bitti. Katıldığınız için teşekkür ederiz. \n Kazanan: ${kazananlar}`)
-		                            .setThumbnail('https://i.hizliresim.com/3atro9p.png')
-		                            .setFooter('19 Police Pursuit', 'https://i.hizliresim.com/3atro9p.png');
-		                            message.edit(embed)
+									let embed = new Discord.MessageEmbed()
+									.setColor("#FFFF00")
+									.setTitle(`Ödül :${odul}`)
+									.addField(`19pursuit`,`Çekiliş bitti. Katıldığınız için teşekkür ederiz. \n Kazanan: ${kazananlar}`)
+									.setThumbnail('https://i.hizliresim.com/3atro9p.png')
+									.setFooter('19 Police Pursuit - '+TimeStamp, 'https://i.hizliresim.com/3atro9p.png');
+									msg.edit(embed)
+									msg.channel.send(`Tebrikler, çekilişi kazandın. ${kazananlar}`)
 	                            	clearInterval(edit)
 	                            }
 							},2000)

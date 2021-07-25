@@ -15,7 +15,7 @@ module.exports =(client,Tags,Roller,Discord,RolVarMiMember) => {
         logsFiles.forEach(file=>{
             const log_channel = file.split(".txt")[0]
             if(log_channel.includes(button.channel.id)){
-                log.send(`**${member.user.username}** adlı kişi ${desteksahip} adlı kişinin transcriptini kayıt etti.`,{files: [`./logs/${guild.id}/${log_channel}.txt`]})
+                log.send(`**${member.user.username}** adlı kişi ${desteksahip} adlı kişinin transcriptini kayıt etti.`,{files: [`./logs/${guild.id}/${kanaladi}/${log_channel}.txt`]})
             }
         })
     })

@@ -10,11 +10,13 @@ module.exports =(client,Tags,Roller,Discord,RolVarMiMember) => {
         const channel = button.message.channel
         const members = await guild.members.fetch()
         members.forEach(async member =>{
+            if(data[member.id] != undefined){
             if(data[member.id].channel_id == channel.id){
                 data[member.id].channel_id = ""
                 data[member.id].kapatmaDurum = 0
                 await Tags.update({usersTickets:data},{where:{guild_id:guild.id}})
             }
+        }
         })
         await channel.delete()
     })

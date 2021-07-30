@@ -23,7 +23,7 @@ module.exports = {
 				members.forEach(member => {
 					invitelistesi[member.id] = {user_list:[]}
 				})
-				await Tags.update({inviteList:invitelistesi},{where:{guild_id:guild.id}})
+				await Tags.update({inviteList:invitelistesi},{where:{guild_id:message.guild.id}})
 				message.react("👍")
 			}
 	}

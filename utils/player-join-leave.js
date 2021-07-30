@@ -93,7 +93,7 @@ module.exports = async (client,Roller,Tags) => {
 		}
 		else{
 			if(inviteTakipDurum ==1){
-			log.send(`**${member}** ayrıldı, hâlâ kimin davet ettiğini bulamıyorum. `)
+			log.send(`**${member}** ayrıldı, kimin davet ettiğini bulamadım.. `)
 			}
 		}
 		delete inviteListe[member.id]

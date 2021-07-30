@@ -23,7 +23,10 @@ module.exports =(client,Tags,Roller,Discord) => {
             }           
         })
 
-        if(ticketlar[ticket_sahip].kapatmaDurum == 1) return 0;
+        if(ticketlar[ticket_sahip] != undefined) {
+            if(ticketlar[ticket_sahip.kapatmaDurum == 1]) return 0 ;
+        }
+        
        
         // Database update
 
@@ -51,40 +54,78 @@ module.exports =(client,Tags,Roller,Discord) => {
             buttons:[transcript,openbtn,deletebtn]
         })
 
-        await channel.overwritePermissions([{
-            id: ticket_sahip,
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Management"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Head Admin"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Game Admin"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Trial Admin"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Support"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Bot"],
-            allow:["VIEW_CHANNEL","SEND_MESSAGES"],
-        },
-        {
-            id:"772506278790561802",
-            deny:["VIEW_CHANNEL","SEND_MESSAGES"],
-        }])
-
-        ticketlar[ticket_sahip].kapatmaDurum = 1
-        await Tags.update({usersTickets:ticketlar},{where:{guild_id: button.guild.id}})
+        if(ticketlar[ticket_sahip] != undefined){
+            await channel.overwritePermissions([{
+                id: ticket_sahip,
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Management"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Head Admin"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Game Admin"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Trial Admin"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Support"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Bot"],
+                allow:["VIEW_CHANNEL","SEND_MESSAGES"],
+            },
+            {
+                id:"772506278790561802",
+                deny:["VIEW_CHANNEL","SEND_MESSAGES"],
+            }])
+    
+        }
+        else {
+            await channel.overwritePermissions([
+            {
+                id: Roller["Management"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Head Admin"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Game Admin"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Trial Admin"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Support"],
+                allow:["VIEW_CHANNEL"],
+            },
+            {
+                id: Roller["Bot"],
+                allow:["VIEW_CHANNEL","SEND_MESSAGES"],
+            },
+            {
+                id:"772506278790561802",
+                deny:["VIEW_CHANNEL","SEND_MESSAGES"],
+            }])
+    
+        }
+        
+        if(ticketlar[ticket_sahip] != undefined) {
+            ticketlar[ticket_sahip].kapatmaDurum = 1
+            await Tags.update({usersTickets:ticketlar},{where:{guild_id: button.guild.id}})
+        }
+        
     })
 }

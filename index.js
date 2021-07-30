@@ -62,9 +62,9 @@ function MesajGönder(message,msj) {
 function handleDisconnection() {
 	conn.connect(function (err) {
 		if (err) {
-            setTimeout('handleDisconnection()', 2000);
+            setTimeout(handleDisconnection, 2000);
         }
-		console.log(chalk.blue('MYSQL Bağlandı'));
+		console.log(chalk.blue('MYSQL Tekrar Baglandı.'));
 	})
 }
 
@@ -195,21 +195,24 @@ client.once('ready', async () => {
 
 	conn.connect(function (err) {
 		if (err) {
-            setTimeout('handleDisconnection()', 2000);
+            setTimeout(handleDisconnection, 2000);
         }
 		console.log(chalk.blue('MYSQL Bağlandı'));
 	})
 
-	connection.on('error', function (err) {
-        logger.error('db error', err);
+	conn.on('error', function (err) {
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-                         logger.error ( 'db error perform reconnection:' + err.message);
             handleDisconnection();
         } else {
             throw err;
         }
     });
 
+	setInterval(()=>{
+		conn.query("SELECT 1+1 as Solution",function(err,results,fields){
+			if(err) throw err;
+		})
+	},18000000)
 
 	// SQLİTE 3
 	await Tags.sync();

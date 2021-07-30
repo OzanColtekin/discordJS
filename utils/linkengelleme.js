@@ -11,13 +11,25 @@ module.exports = (client,RolVarMi,Roller,Tags,Discord) => {
 		probablyLinks.some(async word => {
 			if(message.content.toLowerCase().includes(word)){
 				if(!message.content.toLowerCase().includes("19-pp.com")){
-					await message.delete();
-					let embed = new Discord.MessageEmbed()
-					.setAuthor('19 Police Pursuit', 'https://i.hizliresim.com/rtbr3kh.png','https://19-pp.com/')
-					.setTitle('Link Engelleme Sistemi')
-					.setDescription(`**${message.member}** adlı kişi reklam yapıyor olabilir : ${message.content}`)
-					.setFooter('19 Police Pursuit', 'https://i.hizliresim.com/3atro9p.png');
-					log.send(embed)
+					if(message.channel.id != "868974761487761418"){
+						await message.delete();
+						let embed = new Discord.MessageEmbed()
+						.setAuthor('19 Police Pursuit', 'https://i.hizliresim.com/rtbr3kh.png','https://19-pp.com/')
+						.setTitle('Link Engelleme Sistemi')
+						.setDescription(`**${message.member}** adlı kişi reklam yapıyor olabilir : ${message.content}`)
+						.setFooter('19 Police Pursuit', 'https://i.hizliresim.com/3atro9p.png');
+						log.send(embed)
+					}else{
+						if(!message.content.toLowerCase().includes("youtube.com") && !message.content.toLowerCase().includes("https://cdn.discordapp.com/attachments/")){
+							await message.delete();
+							let embed = new Discord.MessageEmbed()
+							.setAuthor('19 Police Pursuit', 'https://i.hizliresim.com/rtbr3kh.png','https://19-pp.com/')
+							.setTitle('Link Engelleme Sistemi')
+							.setDescription(`**${message.member}** adlı kişi reklam yapıyor olabilir : ${message.content}`)
+							.setFooter('19 Police Pursuit', 'https://i.hizliresim.com/3atro9p.png');
+							log.send(embed)
+						}
+					}
 				}
 				return 0;
 			}

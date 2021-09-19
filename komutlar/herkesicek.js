@@ -3,7 +3,7 @@ module.exports ={
 	cooldown:3,
 	aliases:["herkesitasi","etasi","ecek"],
 	async execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag,KanalBul){
-		if(!RolVarMi(message,Roller["Management"])) return MesajGönder(message,"Bu komutu kullanamazsınız.")
+		if(!RolVarMi(message,Roller["Developer"])) return MesajGönder(message,"Bu komutu kullanamazsınız.")
 		if(!message.member.voice.channel) return MesajGönder(message,"Bu komutu kullanmak için sesli kanalda olmalısınız.")
 		if(!args[0]) return MesajGönder(message,"!herkesicek [kanal adı]")
 			const channel_1 = message.guild.channels.cache.find(channel => channel.name == message.member.voice.channel.name)

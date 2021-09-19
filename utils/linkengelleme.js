@@ -1,7 +1,7 @@
 module.exports = (client,RolVarMi,Roller,Tags,Discord) => {
 	client.on("message" , async message =>{
 		if(message.author.bot || message.webhookID) return 0;
-		if(RolVarMi(message,Roller["Management"])) return 0;
+		if(RolVarMi(message,Roller["Developer"])) return 0;
 		const tag = await Tags.findOne({where: {guild_id : message.guild.id}})
 		const linkEngel = await tag.get("linkEngellemeDurum")
 		const logid = await tag.get("logchannel")

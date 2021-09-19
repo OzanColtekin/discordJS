@@ -85,13 +85,9 @@ function ZamanHesapla(coutdown){
 	return sonuc
 }
 
-const Roller = {"Management":"855825686798663690",
-				"Head Admin":"855825821197533194",
-				"Game Admin":"855826075212840991",
-				"Trial Admin":"855826155704418314",
-				"Support":"855826235933851679",
-				"Bot":"772526719658885200",
-				"Mute": "857545873948934145",
+const Roller = {"Developer":"690336322803859906",
+				"Development Team":"779806870223192075",
+				"Special":"763172319178522675",
 				}
 
 // Kısaltma Bitiş
@@ -121,10 +117,10 @@ client.commands.forEach(cmd => {
 
 client.once('ready', async () => {
 
-	console.log(chalk.red("19-PP Bot Başladı."))
+	console.log(chalk.red("Ozan Bot Başladı."))
 	
 	//Oynuyor Bölümü
-	client.user.setActivity("19 Police Pursuit", { type: "PLAYING" });
+	client.user.setActivity("sex tape", { type: "PLAYING" });
 
 	// kişi sayısı
 	client.guilds.cache.forEach(async guild =>{
@@ -174,14 +170,14 @@ client.once('ready', async () => {
 	playerJoinLeave(client,Roller,Tags)
 	hediye(client,Tags)
 	mesajLog(client,fs)
-	linkEngelleme(client,RolVarMi,Roller,Tags,Discord)
+	//linkEngelleme(client,RolVarMi,Roller,Tags,Discord)
 	bantakip(client)
 	guildCreate(client,Tags)
 	kanalacınca(client,fs)
 	kanalsilince(client,fs)
 	mesajdüzenleme(client,fs)
-	yasakliKelime(client,RolVarMi,Roller,Discord,fs,Tags)
-	antimention(client,RolVarMi,RolVarMiMember,Tags,Roller)
+	//yasakliKelime(client,RolVarMi,Roller,Discord,fs,Tags)
+	//antimention(client,RolVarMi,RolVarMiMember,Tags,Roller)
 
 	// ticket sistemi
 

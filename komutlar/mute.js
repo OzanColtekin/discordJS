@@ -3,7 +3,7 @@ module.exports = {
 	cooldown: 0,
 	aliases:["sustur"],
 	async execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag){
-		if(!RolVarMi(message,Roller["Management"]) && !RolVarMi(message,Roller["Head Admin"]) && !RolVarMi(message,Roller['Game Admin'])) return MesajGönder(message,"Bu komutu kullanmazsınız.")
+		if(!RolVarMi(message,Roller["Developer"]) && !RolVarMi(message,Roller["Development Team"])) return MesajGönder(message,"Bu komutu kullanmazsınız.")
 		if(!args[0] || !args[1] || !args[2]) return MesajGönder(message,"!mute @kullanıcı [süre(dakika)] [sebep]")
 		const member = message.mentions.members.first();
 		const sebep = args.splice(2,args.length-1).join(" ")

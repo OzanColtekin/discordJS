@@ -3,7 +3,7 @@ module.exports = {
 	cooldown: 0,
 	aliases:["c","ckls"],
 	async execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag,cekilisList){
-		if(RolVarMi(message,Roller["Management"]) == false) return MesajGönder(message,"Bu komutu kullanmazsınız.")
+		if(RolVarMi(message,Roller["Developer"]) == false) return MesajGönder(message,"Bu komutu kullanmazsınız.")
 		if(!args[0] || !args[1] || !args[2] || !args[3]) return MesajGönder(message,"!cekilis [süre(dakika)] [Kaç kişinin kazanacağı] [kanal etiketi] [Verilecek Hediye]")
 
 		const data = tag.get("giveaway")

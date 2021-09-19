@@ -6,7 +6,7 @@ module.exports =(client,Tags,Roller,Discord,RolVarMiMember) => {
         const tag = await Tags.findOne({where:{guild_id:guild.id}})
         const data = await tag.get("usersTickets")
         const member = await guild.members.fetch(button.clicker.id)
-        if(!RolVarMiMember(member,Roller["Management"]) && !RolVarMiMember(member,Roller["Head Admin"]) && !RolVarMiMember(member,Roller["Game Admin"])) return 0;
+        //if(!RolVarMiMember(member,Roller["Management"]) && !RolVarMiMember(member,Roller["Head Admin"]) && !RolVarMiMember(member,Roller["Game Admin"])) return 0;
         const channel = button.message.channel
         const members = await guild.members.fetch()
         members.forEach(async member =>{

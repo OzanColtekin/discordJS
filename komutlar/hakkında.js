@@ -4,7 +4,6 @@ module.exports = {
 	cooldown:0,
 	guildOnly:true,
 	execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag){
-		if(!RolVarMi(message,Roller["Management"]) && !RolVarMi(message,Roller["Head Admin"]) && !RolVarMi(message,Roller["Game Admin"]) && !RolVarMi(message,Roller["Trial Admin"])) return MesajGönder(message,"Bu komutu kullanmazsınız.")
 		var now = Date.now()
 
 		var collection = new Discord.Collection();
@@ -130,30 +129,24 @@ module.exports = {
 
         // embed //
 
-        let sqlsorgu = "SELECT isim,DiscordID from hesaplar";
-		conn.query(sqlsorgu,function(err,results,fields){
-			for(let x=0;x<results.length;x++){
-				collection.set(results[x].DiscordID,results[x].isim)
-			}
-			var oyunAdı = collection.get(ID) || "Kayıtlı Değil";
-			const embed = new Discord.MessageEmbed()
-					.setTitle(username)
-					.addFields(
-								{ name: 'ID', value: ID, inline: true },
-								{ name: 'Avatar', value : `[Link](${avatarURL})`, inline: true },
-								//{ name: '\u200B', value: '\u200B',inline: true },
-								{ name: 'Hesap Oluşturma Tarihi', value:hesapOlusma, inline:true},
-								{ name: 'Sunucuya Katılma Tarihi', value:sunucuKatılma, inline:true},
-								{ name: 'Sunucuda Bulunma Süresi', value:`${years} yıl , ${weeks} hafta , ${days2} gün`, inline:true},
-								{ name: 'Hesap Oluşturma Süresi', value:`${years_created} yıl , ${weeks_created} hafta , ${days2_created} gün`, inline:true},
-								{ name: 'Oyun Adı:', value:`${oyunAdı}`, inline:true},
-								{ name: 'Davet Sayısı', value:`${inviteSayi}`, inline:true},
-								{ name: '\u200B', value: '\u200B',inline: true },
-								)
-					.setThumbnail(avatarURL)
-					message.channel.send(embed)
 
-		})
+		const embed = new Discord.MessageEmbed()
+				.setTitle(username)
+				.addFields(
+							{ name: 'ID', value: ID, inline: true },
+							{ name: 'Avatar', value : `[Link](${avatarURL})`, inline: true },
+							//{ name: '\u200B', value: '\u200B',inline: true },
+							{ name: 'Hesap Oluşturma Tarihi', value:hesapOlusma, inline:true},
+							{ name: 'Sunucuya Katılma Tarihi', value:sunucuKatılma, inline:true},
+							{ name: 'Sunucuda Bulunma Süresi', value:`${years} yıl , ${weeks} hafta , ${days2} gün`, inline:true},
+							{ name: 'Hesap Oluşturma Süresi', value:`${years_created} yıl , ${weeks_created} hafta , ${days2_created} gün`, inline:true},
+							{ name: 'Davet Sayısı', value:`${inviteSayi}`, inline:true},
+							{ name: '\u200B', value: '\u200B',inline: true },
+							)
+				.setThumbnail(avatarURL)
+				message.channel.send(embed)
+
+
        
     }
     

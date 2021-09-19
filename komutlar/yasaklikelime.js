@@ -2,7 +2,7 @@ module.exports = {
     name:"yasaklikelime",
     aliases:["ykelime","kban","yasak"],
     async execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag,KanalBul,kural,fs){
-        if(!RolVarMi(message,Roller["Management"])) return MesajGönder(message,"Bu komutu kullanamazsınız.")
+        if(!RolVarMi(message,Roller["Developer"])) return MesajGönder(message,"Bu komutu kullanamazsınız.")
         if(!args[0]) return MesajGönder(message,"!yasaklikelime [ekle/cikar] [kelime]")
         if(args[0] == "ekle"){
             if(!args[1]) return MesajGönder(message,"!yasaklikelime ekle [kelime]")

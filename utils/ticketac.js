@@ -20,31 +20,11 @@ module.exports =(client,Tags,Roller,Discord,RolVarMiMember) => {
             allow:["VIEW_CHANNEL"],
         },
         {
-            id: Roller["Management"],
+            id: Roller["Developer"],
             allow:["VIEW_CHANNEL"],
         },
         {
-            id: Roller["Head Admin"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Game Admin"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Trial Admin"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Support"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id: Roller["Bot"],
-            allow:["VIEW_CHANNEL"],
-        },
-        {
-            id:"772506278790561802",
+            id:"763172319178522675",
             deny:["VIEW_CHANNEL"],
         }])
     })

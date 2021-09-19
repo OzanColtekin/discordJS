@@ -10,7 +10,7 @@ module.exports =(client,Tags,Roller,Discord,RolVarMiMember) => {
         const kanaladi = button.channel.name
         const desteksahip = kanaladi.split("-destek")[0]
         const log = await guild.channels.cache.find(c => c.id == arsiv.arsiv_id)
-        if(!RolVarMiMember(member,Roller["Management"]) && !RolVarMiMember(member,Roller["Head Admin"]) && !RolVarMiMember(member,Roller["Game Admin"])) return 0;
+        //if(!RolVarMiMember(member,Roller["Management"]) && !RolVarMiMember(member,Roller["Head Admin"]) && !RolVarMiMember(member,Roller["Game Admin"])) return 0;
         const logsFiles = fs.readdirSync(`./logs/${guild.id}/${kanaladi}`).filter(file => file.endsWith(".txt"))
         logsFiles.forEach(file=>{
             const log_channel = file.split(".txt")[0]

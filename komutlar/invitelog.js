@@ -3,7 +3,7 @@ module.exports = {
 	aliases:["iv","invitelogger","ilogger","ilog"],
 	cooldown:0,
 	async execute(message,args,Discord,RolVarMi,log,Roller,MesajGönder,conn,Tags,client,tag){
-		if(!RolVarMi(message,Roller["Management"])) return MesajGönder(message,"Bu komutu kullanmazsınız.")
+		if(!RolVarMi(message,Roller["Developer"])) return MesajGönder(message,"Bu komutu kullanmazsınız.")
 		if(!args[0]) return MesajGönder(message,"!invitelog [baslat/durdur/sıfırla]")
 			if(args[0] == "baslat"){
 				var inviteTakip = await tag.get("inviteTakipDurumu")

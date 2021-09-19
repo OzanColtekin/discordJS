@@ -2,7 +2,7 @@ module.exports = (client,RolVarMi,RolVarMiMember,Tags,Roller) =>{
     client.on("message", async message =>{
         if(message.author.bot) return 0;
         const member = message.member
-        if(RolVarMiMember(member,Roller["Management"]) || RolVarMiMember(member,Roller["Head Admin"]) || RolVarMiMember(member,Roller["Game Admin"]) || RolVarMiMember(member,Roller["Trial Admin"]) || RolVarMiMember(member,Roller["Support"])) return 0 ;
+        if(RolVarMiMember(member,Roller["Developer"]) || RolVarMiMember(member,Roller["Head Admin"]) || RolVarMiMember(member,Roller["Game Admin"]) || RolVarMiMember(member,Roller["Trial Admin"]) || RolVarMiMember(member,Roller["Support"])) return 0 ;
         if(message.content.startsWith("!rapor") || message.content.startsWith("!report")) return 0;
         const etiket = message.mentions.members.first()
         if(etiket == undefined) return 0;

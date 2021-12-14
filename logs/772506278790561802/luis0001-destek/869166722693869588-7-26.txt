@@ -1,8 +1,0 @@
-[2021-7-26 10:38:41] *luis#0001 (706933442969075784): Gmail'ime şimdi hesabın aktive edildi mail'i geldi, şimdi ne yapmam gerek?  
-[2021-7-26 10:39:05] Devious#1001 (852616611806576680): oyuna giriş yapabilirsin  
-[2021-7-26 10:39:33] Devious#1001 (852616611806576680): dc hesabını bağlamanı isteyecek senden, oyunda verdiği kodu en üstteki kayıt kanalına yazıyorsun ve kaydın tamamlanıyor  
-[2021-7-26 10:39:43] *luis#0001 (706933442969075784): IP alabilirmiyim  
-[2021-7-26 10:39:57] Devious#1001 (852616611806576680): !ip  
-[2021-7-26 10:39:57] 19pursuit#7988 (855747854101643275):   
-[2021-7-26 10:39:57] 19 Police Pursuit#8134 (859779522227732510):   
-[2021-7-26 10:40:02] *luis#0001 (706933442969075784): teşekkürler.  
